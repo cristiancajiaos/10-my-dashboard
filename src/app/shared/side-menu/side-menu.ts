@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { routes } from '../../app.routes';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './side-menu.html',
   styles: `
     :host {
@@ -11,4 +13,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.Eager,
 })
-export class SideMenu {}
+export class SideMenu {
+
+  public menuItems = routes.map(route => route.children ?? [])
+  .flat()
+  .filter(route => route && route.path != '' && route.path != '**')
+  .filter(route => !route.path?.includes(':'));
+}
