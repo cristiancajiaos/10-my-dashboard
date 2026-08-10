@@ -11,4 +11,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.Eager,
 })
-export class ControlFlow {}
+export default class ControlFlow {}
