@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { SideMenu } from '../shared/side-menu/side-menu';
+import { SideMenu } from '@shared/side-menu/side-menu';
+
 
 @Component({
   selector: 'app-dashboard',
