@@ -1,11 +1,21 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-heavy-loaders-fast',
-  imports: [],
+  imports: [NgClass],
   template: `
-    <h1>Hola, mundo!</h1>
+    <section class="w-full" [ngClass]="cssClass()">
+      <ng-content/>
+    </section>
   `,
   changeDetection: ChangeDetectionStrategy.Eager,
 })
-export class HeavyLoadersFast {}
+export class HeavyLoadersFast {
+
+  cssClass = input.required<string>();
+
+  constructor () {
+    console.log('Heavy Loader Fast Creado');
+  }
+}
