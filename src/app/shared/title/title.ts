@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -11,4 +11,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.Eager,
 })
-export class Title {}
+export class Title {
+
+  title = input.required<string>();
+  withShadow = input<boolean>(false);
+}
