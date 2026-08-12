@@ -1,8 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { UsersService } from '@services/users-service';
+import { Title } from '@shared/title/title';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [Title, RouterLink, JsonPipe],
   templateUrl: './users.html',
   styles: `
     :host {
@@ -11,4 +15,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.Eager,
 })
-export default class Users {}
+export default class Users {
+
+  public usersService = inject(UsersService);
+
+
+}
